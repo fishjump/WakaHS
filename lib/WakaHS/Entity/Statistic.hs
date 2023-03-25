@@ -7,6 +7,7 @@
 module WakaHS.Entity.Statistic
   ( Category,
     Project,
+    Statistic (..),
     Language,
     Editor,
     OperatingSystem,
@@ -17,6 +18,7 @@ where
 
 import Data.Aeson (FromJSON, Value, withObject, (.:))
 import Data.Aeson.Types (FromJSON (parseJSON), Parser)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 
 type Category = Statistic
@@ -35,14 +37,14 @@ type Machine = Statistic
 
 data Statistic where
   Statistic ::
-    { name :: String,
+    { name :: Text,
       totalSeconds :: Double,
       percent :: Double,
-      digital :: String,
-      text :: String,
+      digital :: Text,
+      text :: Text,
       hours :: Int,
-      minutes :: Int,
-      seconds :: Int
+      minutes :: Int
+      -- seconds :: Int  ??? They don't really have this field, their doc sucks
     } ->
     Statistic
   deriving (Generic, Show, Eq)
@@ -57,5 +59,5 @@ instance FromJSON Statistic where
     text <- o .: "text"
     hours <- o .: "hours"
     minutes <- o .: "minutes"
-    seconds <- o .: "seconds"
+    -- seconds <- o .: "seconds"
     return Statistic {..}

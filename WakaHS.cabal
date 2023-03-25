@@ -31,16 +31,20 @@ library wakahs-lib
         WakaHS.Entity.Range
         WakaHS.Entity.Statistic
         WakaHS.Entity.Stats
+        WakaHS.Render.Utils
+        WakaHS.Render.WeeklySummary
         WakaHS.Request
         WakaHS.Response
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     build-depends:
-        , aeson       ^>=2.1.2.1
-        , base        ^>=4.16.4.0
+        , aeson        ^>=2.1.2.1
+        , base         ^>=4.16.4.0
         , bytestring
-        , curl        ^>=1.3.8
+        , curl         ^>=1.3.8
+        , shakespeare  ^>=2.0.30
+        , text
         , vector
 
     hs-source-dirs:   lib
@@ -56,6 +60,7 @@ executable wakahs
     -- other-extensions:
     build-depends:
         , base        ^>=4.16.4.0
+        , text
         , wakahs-lib
 
     hs-source-dirs:   app
@@ -79,6 +84,7 @@ test-suite wakahs-test
         , string-qq
         , tasty        ^>=1.4.3
         , tasty-hunit  ^>=0.10.0.3
+        , text
         , wakahs-lib
 
     hs-source-dirs:   test

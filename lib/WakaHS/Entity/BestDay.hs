@@ -8,11 +8,12 @@ module WakaHS.Entity.BestDay (BestDay (..)) where
 
 import Data.Aeson (FromJSON, Value, withObject, (.:))
 import Data.Aeson.Types (FromJSON (parseJSON), Parser)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 
 data BestDay where
   BestDay ::
-    {date :: String, text :: String, totalSeconds :: Double} ->
+    {date :: Text, text :: Text, totalSeconds :: Double} ->
     BestDay
   deriving (Generic, Show, Eq)
 

@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
 import ApiTest (apiTests)
@@ -8,4 +10,5 @@ tests :: TestTree
 tests = testGroup "Tests" [apiTests, responseTests]
 
 main :: IO ()
-main = defaultMain tests
+main = do
+  defaultMain tests

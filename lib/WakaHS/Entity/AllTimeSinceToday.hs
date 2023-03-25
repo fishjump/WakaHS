@@ -8,17 +8,18 @@ module WakaHS.Entity.AllTimeSinceToday (AllTimeSinceToday (..)) where
 
 import Data.Aeson (FromJSON (parseJSON), Value, withObject, (.:))
 import Data.Aeson.Types (Parser)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 import WakaHS.Entity.Range (Range)
 
 data AllTimeSinceToday where
   AllTimeSinceToday ::
-    { decimal :: String,
-      digital :: String,
+    { decimal :: Text,
+      digital :: Text,
       isUpToDate :: Bool,
       percentCalculated :: Integer,
       timeRange :: Range,
-      rangeInText :: String,
+      rangeInText :: Text,
       timeout :: Integer,
       totalSeconds :: Double
     } ->

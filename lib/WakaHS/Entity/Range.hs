@@ -8,17 +8,18 @@ module WakaHS.Entity.Range (Range (..)) where
 
 import Data.Aeson (FromJSON, Value, withObject, (.:))
 import Data.Aeson.Types (FromJSON (parseJSON), Parser)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 
 data Range where
   Range ::
-    { end :: String,
-      endDate :: String,
-      endText :: String,
-      start :: String,
-      startDate :: String,
-      startText :: String,
-      timezone :: String
+    { end :: Text,
+      endDate :: Text,
+      endText :: Text,
+      start :: Text,
+      startDate :: Text,
+      startText :: Text,
+      timezone :: Text
     } ->
     Range
   deriving (Generic, Show, Eq)

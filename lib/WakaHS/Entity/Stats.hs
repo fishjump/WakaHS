@@ -8,6 +8,7 @@ module WakaHS.Entity.Stats (Stats (..)) where
 
 import Data.Aeson (FromJSON (parseJSON), Value, withObject, (.:))
 import Data.Aeson.Types (Parser)
+import Data.Text (Text)
 import GHC.Generics (Generic)
 import WakaHS.Entity.BestDay (BestDay)
 import WakaHS.Entity.Statistic
@@ -24,26 +25,26 @@ data Stats where
   Stats ::
     { totalSeconds :: Double,
       totalSecondsIncludingOtherLanguage :: Double,
-      humanReadableTotal :: String,
-      humanReadableTotalIncludingOtherLanguage :: String,
+      humanReadableTotal :: Text,
+      humanReadableTotalIncludingOtherLanguage :: Text,
       dailyAverage :: Double,
       dailyAverageIncludingOtherLanguage :: Double,
-      humanReadableDailyAverage :: String,
-      humanReadableDailyAverageIncludingOtherLanguage :: String,
+      humanReadableDailyAverage :: Text,
+      humanReadableDailyAverageIncludingOtherLanguage :: Text,
       categories :: [Category],
       projects :: [Project],
       languages :: [Language],
       editors :: [Editor],
-      operating_systems :: [OperatingSystem],
+      operatingSystems :: [OperatingSystem],
       dependencies :: [Dependency],
       machines :: [Machine],
       best_day :: BestDay,
-      range :: String,
-      humanReadableRange :: String,
+      range :: Text,
+      humanReadableRange :: Text,
       holidays :: Int,
       daysIncludingHolidays :: Int,
       daysMinusHolidays :: Int,
-      status :: String,
+      status :: Text,
       percentCalculated :: Int,
       isAlreadyUpdating :: Bool,
       isCodingActivityVisible :: Bool,
@@ -51,15 +52,15 @@ data Stats where
       isStuck :: Bool,
       isIncludingToday :: Bool,
       isUpToDate :: Bool,
-      start :: String,
-      end :: String,
-      timezone :: String,
+      start :: Text,
+      end :: Text,
+      timezone :: Text,
       timeout :: Int,
       writesOnly :: Bool,
-      userId :: String,
-      username :: String,
-      createdAt :: String,
-      modifiedAt :: String
+      userId :: Text,
+      username :: Maybe Text,
+      createdAt :: Text,
+      modifiedAt :: Text
     } ->
     Stats
   deriving (Generic, Show, Eq)
@@ -79,7 +80,7 @@ instance FromJSON Stats where
     projects <- o .: "projects"
     languages <- o .: "languages"
     editors <- o .: "editors"
-    operating_systems <- o .: "operating_systems"
+    operatingSystems <- o .: "operating_systems"
     dependencies <- o .: "dependencies"
     machines <- o .: "machines"
     best_day <- o .: "best_day"
