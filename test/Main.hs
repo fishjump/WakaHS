@@ -1,9 +1,11 @@
 module Main where
 
-import Test.HUnit (Counts, Test, Testable (test), runTestTT, (~:), (~=?))
+import ApiTest (apiTests)
+import ResponseTest (responseTests)
+import Test.Tasty (TestTree, defaultMain, testGroup)
 
-tests :: Test
-tests = test ["test1" ~: "1+1=2" ~: (1 + 1) ~=? 2]
+tests :: TestTree
+tests = testGroup "Tests" [apiTests, responseTests]
 
-main :: IO Counts
-main = runTestTT tests
+main :: IO ()
+main = defaultMain tests
