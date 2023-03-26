@@ -20,6 +20,9 @@ lookupEnvOrDefault n d = lookupEnv n & fmap (fromMaybe d)
 wakaApiKey :: IO String
 wakaApiKey = lookupEnvOrDefault "WAKA_API_KEY" (error "expect env: WAKA_API_KEY")
 
+output :: IO String
+output = lookupEnvOrDefault "OUTPUT" "/app/output/README.md"
+
 stats :: IO (Either String Stats)
 stats = do
   key <- wakaApiKey
@@ -42,6 +45,7 @@ weeklySummary = do
 main :: IO ()
 main = do
   summary <- weeklySummary
+  o <- output
 
   let rendered = renderWeeklySummary ProgressBarStyle.Type1 summary
-  TIO.writeFile "Weekly.md" rendered
+  TIO.writeFile o rendered
