@@ -48,8 +48,10 @@ library wakahs-lib
         WakaHS.Entity.Statistic
         WakaHS.Entity.Stats
         WakaHS.IO.Env
+        WakaHS.IO.Github
         WakaHS.IO.Utils
         WakaHS.IO.WeeklySummary
+        WakaHS.Render.Component.VisitorBadge
         WakaHS.Render.Component.WeeklySummary
         WakaHS.Render.Render
         WakaHS.Render.Utils
