@@ -3,7 +3,17 @@ name: Publish to ghcr.io
 on:
   push:
     branches: [master, dev]
-
+    paths:
+      [
+        .github/workflows/docker-image.yml,
+        Dockerfile,
+        cabal.project,
+        WakaHS.cabal,
+        entrypoint.sh,
+        src/**,
+        app/**,
+        test/**,
+      ]
 env:
   IMAGE_NAME: ${{ github.repository }}
   REGISTRY: ghcr.io
