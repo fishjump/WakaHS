@@ -17,6 +17,10 @@ inputs:
     description: "Output file"
     required: false
     default: "/github/workspace/README.md"
+  image_tag:
+    description: "Docker image tag"
+    required: false
+    default: "master"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/fishjump/wakahs:master"
+  image: "docker://ghcr.io/fishjump/wakahs:{{ inputs.image_tag }}"
