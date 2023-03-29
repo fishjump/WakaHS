@@ -47,6 +47,9 @@ library wakahs-lib
         WakaHS.Entity.Range
         WakaHS.Entity.Statistic
         WakaHS.Entity.Stats
+        WakaHS.IO.Env
+        WakaHS.IO.Utils
+        WakaHS.IO.WeeklySummary
         WakaHS.Render.Component.WeeklySummary
         WakaHS.Render.Render
         WakaHS.Render.Utils
@@ -60,6 +63,7 @@ library wakahs-lib
         , base            ^>=4.16.4.0
         , bytestring
         , curl            ^>=1.3.8
+        , github          ^>=0.28.0.1
         , raw-strings-qq  ^>=1.1
         , stache          ^>=2.3.3
         , text

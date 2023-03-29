@@ -1,0 +1,22 @@
+name: "WakaHS - Update GitHub Profile"
+description: "Update your GitHub profile with WakaTime"
+author: "Yue Yu"
+inputs:
+  waka_api_key:
+    description: "your wakatime api key"
+    required: true
+  gh_token:
+    description: "your github token"
+    required: false
+    default: ${{ github.token }}
+  template:
+    description: "Input template file"
+    required: false
+    default: "/github/workspace/template.md"
+  readme:
+    description: "Output file"
+    required: false
+    default: "/github/workspace/README.md"
+runs:
+  using: "docker"
+  image: "ghcr.io/fishjump/wakahs:dev"
