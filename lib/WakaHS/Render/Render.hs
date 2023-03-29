@@ -1,25 +1,32 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module WakaHS.Render.Render (renderFile, RenderContext (..)) where
+module WakaHS.Render.Render (renderFile, RenderComponent (..), Renderable (..)) where
 
-import Data.Aeson (object, (.=))
-import Data.Text (Text)
+import Data.Aeson (Key, object, (.=))
+import Data.Aeson.Types (Pair)
+import Data.Function ((&))
 import qualified Data.Text.IO as TIO
 import qualified Data.Text.Lazy as TL
 import Text.Mustache (compileMustacheText, renderMustache)
 
-data RenderContext where
-  RenderContext :: {weeklySummary :: Maybe Text} -> RenderContext
+class Renderable a where
+  name :: a -> Key
+  render :: a -> TL.Text
 
-renderFile :: RenderContext -> FilePath -> IO TL.Text
+data RenderComponent where
+  Wrap :: Renderable a => a -> RenderComponent
+
+renderComponent :: RenderComponent -> Pair
+renderComponent (Wrap comp) = name comp .= render comp
+
+renderFile :: [RenderComponent] -> FilePath -> IO TL.Text
 renderFile ctx file = do
-  templateStr <- TIO.readFile file
-
-  let eitherTemplate = compileMustacheText "dynamicTemplate" templateStr
+  tmpl <- TIO.readFile file
+  let eitherTemplate = compileMustacheText "dynamic template" tmpl
   case eitherTemplate of
     Left err -> error $ "Template compilation error: " ++ show err
     Right template -> do
-      let context = object ["WeeklySummary" .= weeklySummary ctx]
+      let context = ctx & map renderComponent & object
       let rendered = renderMustache template context
       return rendered
