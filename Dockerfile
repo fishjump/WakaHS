@@ -24,13 +24,14 @@ RUN cabal install
 FROM haskell:9.2.5-slim
 
 # Install necessary dependencies
-RUN apt-get update && apt-get install -y libcurl4-gnutls-dev
+RUN apt-get update && apt-get install -y libcurl4-gnutls-dev git
 
 # Copy the compiled binary from the first stage
 COPY --from=build /root/.cabal/bin/wakahs /app/wakahs
+COPY ./entrypoint.sh /app/entrypoint.sh
 
 # Set the working directory
 WORKDIR /app
 
 # Set the entrypoint
-ENTRYPOINT ["/app/wakahs"]
+ENTRYPOINT ["/app/entrypoint.sh"]

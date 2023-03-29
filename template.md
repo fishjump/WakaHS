@@ -1,0 +1,3 @@
+# WakaHS
+
+{{WeeklySummary}}
