@@ -10,7 +10,7 @@ on:
         cabal.project,
         WakaHS.cabal,
         entrypoint.sh,
-        src/**,
+        lib/**,
         app/**,
         test/**,
       ]
