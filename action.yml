@@ -19,4 +19,4 @@ inputs:
     default: "/github/workspace/README.md"
 runs:
   using: "docker"
-  image: "ghcr.io/fishjump/wakahs:dev"
+  image: "ghcr.io/fishjump/wakahs:master"
