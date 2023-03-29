@@ -1,3 +1,5 @@
 # WakaHS
 
+{{VisitorBadge}}
+
 {{WeeklySummary}}
