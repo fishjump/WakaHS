@@ -23,7 +23,5 @@ currentUser =
     Left err -> error $ "failed to get current user, reason: " ++ show err
     Right user -> return user
 
--- l = GitHub.User.login
-
 currentUserLogin :: IO TL.Text
 currentUserLogin = fmap (fromStrict . untagName . userLogin) currentUser

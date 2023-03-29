@@ -23,9 +23,9 @@ output = lookupEnvOrDefault "INPUT_README" "/github/workspace/README.md"
 
 barStyle :: IO ProgressBarStyle
 barStyle = do
-  t <- lookupEnvOrDefault "BAR_STYLE" "Type1"
+  t <- lookupEnvOrDefault "INPUT_BAR_STYLE" "Type1"
   return $ case t of
     "Type1" -> ProgressBarStyle.Type1
     "Type2" -> ProgressBarStyle.Type2
     "Type3" -> ProgressBarStyle.Type3
-    _ -> error "malform BAR_STYLE, expect one of: Type1, Type2, Type3"
+    _ -> error "malform INPUT_BAR_STYLE, expect one of: Type1, Type2, Type3"

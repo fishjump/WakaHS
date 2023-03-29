@@ -7,8 +7,7 @@ inputs:
     required: true
   gh_token:
     description: "your github token"
-    required: false
-    default: ${{ github.token }}
+    required: true
   template:
     description: "Input template file"
     required: false
@@ -17,6 +16,10 @@ inputs:
     description: "Output file"
     required: false
     default: "/github/workspace/README.md"
+  bar_style:
+    description: "progress bar style, applied for all progress bars in the template"
+    required: false
+    default: "Type1"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/fishjump/wakahs:master"
+  image: "docker://ghcr.io/fishjump/wakahs:dev"

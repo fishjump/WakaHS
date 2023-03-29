@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               WakaHS
-version:            0.2.0
+version:            0.2.3
 
 -- A short (one-line) description of the package.
 -- synopsis:
@@ -49,7 +49,6 @@ library wakahs-lib
         WakaHS.Entity.Stats
         WakaHS.IO.Env
         WakaHS.IO.Github
-        WakaHS.IO.Utils
         WakaHS.IO.WeeklySummary
         WakaHS.Render.Component.VisitorBadge
         WakaHS.Render.Component.WeeklySummary
