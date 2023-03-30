@@ -4,8 +4,6 @@
 module WakaHS.IO.Waka where
 
 import Data.Aeson (FromJSON)
-import Data.Function ((&))
-import Debug.Trace (trace)
 import WakaHS.Api (Api, Range (Last7Days))
 import qualified WakaHS.Api as Api
 import WakaHS.Entity.AllTimeSinceToday (AllTimeSinceToday)
