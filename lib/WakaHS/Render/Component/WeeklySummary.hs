@@ -39,7 +39,7 @@ instance Renderable WeeklySummary where
       renderStatistics s = printf "%s%s%s%s" name' hours' bar' percent' & TL.pack
         where
           name' = Statistic.name s `T.append` spacesBetween 15 (Statistic.name s)
-          hours' = Statistic.text s `T.append` spacesBetween 15 (Statistic.text s)
+          hours' = Statistic.text s `T.append` spacesBetween 20 (Statistic.text s)
           bar' =
             let barText = progressBar barStyle 25 $ Statistic.percent s
              in barText `T.append` spacesBetween 30 barText
