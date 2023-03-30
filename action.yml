@@ -22,4 +22,4 @@ inputs:
     default: "Type1"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/fishjump/wakahs:master"
+  image: "docker://ghcr.io/fishjump/wakahs:dev"
