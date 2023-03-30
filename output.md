@@ -1,6 +1,8 @@
 # WakaHS
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=fishjump.fishjump&amp;left_color=green&amp;right_color=red)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=fishjump.fishjump&amp;left_color=gray&amp;right_color=red)
+
+![Code Time](https://img.shields.io/badge/Code%20Time-149%20hrs%2024%20mins-blue)
 
 
 📊 **This Week I Spent My Time On** 

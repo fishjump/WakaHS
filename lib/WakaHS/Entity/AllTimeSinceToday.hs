@@ -6,7 +6,7 @@
 
 module WakaHS.Entity.AllTimeSinceToday (AllTimeSinceToday (..)) where
 
-import Data.Aeson (FromJSON (parseJSON), Value, withObject, (.:))
+import Data.Aeson (FromJSON (parseJSON), Value, withObject, (.:), (.:?))
 import Data.Aeson.Types (Parser)
 import Data.Text (Text)
 import GHC.Generics (Generic)
@@ -17,7 +17,7 @@ data AllTimeSinceToday where
     { decimal :: Text,
       digital :: Text,
       isUpToDate :: Bool,
-      percentCalculated :: Integer,
+      percentCalculated :: Maybe Integer,
       timeRange :: Range,
       rangeInText :: Text,
       timeout :: Integer,
@@ -32,7 +32,7 @@ instance FromJSON AllTimeSinceToday where
     decimal <- o .: "decimal"
     digital <- o .: "digital"
     isUpToDate <- o .: "is_up_to_date"
-    percentCalculated <- o .: "percent_calculated"
+    percentCalculated <- o .:? "percent_calculated"
     timeRange <- o .: "range"
     rangeInText <- o .: "text"
     timeout <- o .: "timeout"

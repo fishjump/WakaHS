@@ -6,7 +6,8 @@ import qualified Data.Text.IO as TIO
 import qualified Data.Text.Lazy as TL
 import WakaHS.IO.Env (barStyle, input, output)
 import WakaHS.IO.Github (currentUserLogin)
-import WakaHS.IO.WeeklySummary (weeklySummary)
+import WakaHS.IO.Waka (allTimeSinceToday, stats)
+import WakaHS.Render.Component.CodeTimeBadge (CodeTimeBadge (CodeTimeBadge))
 import WakaHS.Render.Component.VisitorBadge (VisitorBadge (VisitorBadge))
 import WakaHS.Render.Component.WeeklySummary (WeeklySummary (WeeklySummary))
 import WakaHS.Render.Render (RenderComponent (Wrap), Renderable, renderFile)
@@ -14,8 +15,9 @@ import WakaHS.Render.Render (RenderComponent (Wrap), Renderable, renderFile)
 renders :: IO [RenderComponent]
 renders =
   sequence
-    [ render $ liftA2 WeeklySummary barStyle weeklySummary,
-      render $ fmap VisitorBadge currentUserLogin
+    [ render $ liftA2 WeeklySummary barStyle stats,
+      render $ fmap VisitorBadge currentUserLogin,
+      render $ fmap CodeTimeBadge allTimeSinceToday
     ]
   where
     render :: Renderable a => IO a -> IO RenderComponent
