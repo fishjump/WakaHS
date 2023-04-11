@@ -48,7 +48,7 @@ Your structure should look like this:
 
 ## 📄 template.md
 
-Below is an example of the `template.md` file, components are represented by the `{{ }}` syntax, you can change the components in the `{{ }}` to whatever you want. Now we only support the `VisitorBadge` and `WeeklySummary`, more components are coming soon.
+Below is an example of the `template.md` file, components are represented by the `{{ }}` syntax, you can change the components in the `{{ }}` to whatever you want.
 
 ``` markdown
 # WakaHS
@@ -106,8 +106,9 @@ Here is the full list of components you can use in the `template.md`
 
 | Name | Description | Use Waka Token | Use GitHub Token |
 | ---- | ----------- | -------------- | ---------------- |
-| VisitorBadge | A visitor badge | ❌ | ✅ getting user id |
-| WeeklySummary | A weekly summary | ✅ getting statistics from wakatime | ❌ |
+| VisitorBadge | Track visitors of your profile | ❌ | ✅ getting user id |
+| WeeklySummary | Weekly statistics from Wakatime | ✅ getting statistics from wakatime | ❌ |
+| CodeTimeBadge | Total code time from Wakatime | ✅ getting statistics from wakatime | ❌ |
 
 
 ## 🤝 How to contribute
