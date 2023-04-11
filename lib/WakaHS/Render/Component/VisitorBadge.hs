@@ -9,7 +9,7 @@ import qualified Data.Text.Lazy as TL
 import WakaHS.Render.Render (Renderable (name, render))
 
 tmplf :: TL.Text -> TL.Text
-tmplf id' = "![visitors](https://visitor-badge.glitch.me/badge?page_id=" <> id' <> "." <> id' <> "&left_color=gray&right_color=red)"
+tmplf id' = "![](https://shields.io/badge/dynamic/json?color=blue&label=Visitors&query=value&url=https://api.countapi.xyz/hit/" <> id' <> "." <> id' <> ")"
 
 data VisitorBadge where
   VisitorBadge :: TL.Text -> VisitorBadge

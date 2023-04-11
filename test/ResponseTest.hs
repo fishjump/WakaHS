@@ -33,7 +33,7 @@ allTimeSinceTodayData =
     { decimal = "122.48",
       digital = "122:29",
       isUpToDate = True,
-      percentCalculated = 100,
+      percentCalculated = Just 100,
       timeRange = Range {end = "2023-03-26T03:59:59Z", endDate = "2023-03-25", endText = "Today", start = "2023-02-10T05:00:00Z", startDate = "2023-02-10", startText = "Fri Feb 10th 2023", timezone = "America/New_York"},
       rangeInText = "124 hrs 34 mins",
       timeout = 15,
